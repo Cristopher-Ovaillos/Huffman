@@ -1,8 +1,5 @@
 package Compresion;
 
-/**
- * Representa un nodo en el árbol de Huffman.
- */
 public class NodoHuffman {
     public char ch;              // Carácter representado
     public int frequency;        // Frecuencia del carácter

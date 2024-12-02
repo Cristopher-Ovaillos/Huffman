@@ -2,7 +2,6 @@ package Compresion;
 
 import java.util.*;
 
-//Maneja la construcción del arbol de Huffman y la generación de codigos.
 public class ArbolHuffman {
     private NodoHuffman root;
 
