@@ -45,8 +45,8 @@ public class ArbolHuffman {
         System.out.println("Cola "+cola.toString());
         while (cola.size() > 1) {
 
-            NodoHuffman izquierdo = cola.poll();//O(1)
-            NodoHuffman derecho = cola.poll();//O(1)
+            NodoHuffman izquierdo = cola.poll();
+            NodoHuffman derecho = cola.poll();
 
             NodoHuffman padre = new NodoHuffman('\0', izquierdo.frequency + derecho.frequency, izquierdo, derecho);
             cola.add(padre);// insertar, y el inserta tiene complejidad Log k (siendo k la longitud la longitud actual de la cola)
