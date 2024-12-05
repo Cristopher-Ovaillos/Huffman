@@ -64,15 +64,16 @@ public class ArbolHuffman {
     }
 
     private void generarCodigosRecursivo(NodoHuffman nodo, String codigo, Map<Character, String> codigos) {
-        if (nodo == null) return;
-
-        if (nodo.left == null && nodo.right == null) { // Es una hoja
-            codigos.put(nodo.ch, codigo);
+        if (nodo != null) {
+            if (nodo.left == null && nodo.right == null) { // Es una hoja
+                codigos.put(nodo.ch, codigo);
+            } else {
+                generarCodigosRecursivo(nodo.left, codigo + "0", codigos);
+                generarCodigosRecursivo(nodo.right, codigo + "1", codigos);
+            }
         }
-
-        generarCodigosRecursivo(nodo.left, codigo + "0", codigos);
-        generarCodigosRecursivo(nodo.right, codigo + "1", codigos);
     }
+    
 
     //devuelve la raiz del arbol
     public NodoHuffman getRoot() {
