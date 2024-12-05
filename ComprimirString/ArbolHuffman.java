@@ -1,4 +1,4 @@
-package Compresion;
+package Huffman.ComprimirString;
 
 import java.util.*;
 
@@ -7,8 +7,13 @@ public class ArbolHuffman {
 
 
     public ArbolHuffman(String texto) {
+
         Map<Character, Integer> frecuencias = calcularFrecuencias(texto);
+        System.out.println("Mapeo "+frecuencias.toString());
+
+
         PriorityQueue<NodoHuffman> cola = construirColaPrioridad(frecuencias);
+        System.out.println("Cola de prioridad "+cola.toString());
         this.root = construirArbol(cola);
     }
 
@@ -25,7 +30,9 @@ public class ArbolHuffman {
     //Construye una cola de prioridad basada en las frecuencias.
     
     private PriorityQueue<NodoHuffman> construirColaPrioridad(Map<Character, Integer> frecuencias) {
+
         PriorityQueue<NodoHuffman> cola = new PriorityQueue<>(Comparator.comparingInt(a -> a.frequency));
+
         for (Map.Entry<Character, Integer> entrada : frecuencias.entrySet()) {
             cola.add(new NodoHuffman(entrada.getKey(), entrada.getValue(), null, null));
         }
@@ -35,11 +42,15 @@ public class ArbolHuffman {
     // Construye el arbol de Huffman.
    
     private NodoHuffman construirArbol(PriorityQueue<NodoHuffman> cola) {
+        System.out.println("Cola "+cola.toString());
         while (cola.size() > 1) {
-            NodoHuffman izquierdo = cola.poll();
-            NodoHuffman derecho = cola.poll();
+
+            NodoHuffman izquierdo = cola.poll();//O(1)
+            NodoHuffman derecho = cola.poll();//O(1)
+
             NodoHuffman padre = new NodoHuffman('\0', izquierdo.frequency + derecho.frequency, izquierdo, derecho);
-            cola.add(padre);
+            cola.add(padre);// insertar, y el inserta tiene complejidad Log k (siendo k la longitud la longitud actual de la cola)
+            System.out.println("Cola "+cola.toString());
         }
         return cola.poll();
     }

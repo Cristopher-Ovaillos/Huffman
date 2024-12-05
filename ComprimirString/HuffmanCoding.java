@@ -1,4 +1,4 @@
-package Compresion;
+package Huffman.ComprimirString;
 
 import java.util.*;
 

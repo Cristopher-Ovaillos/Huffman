@@ -14,3 +14,5 @@
     - Recorrer el arbol segun los bits del texto codificado.
     - Al llegar a una hoja, registrar el caracter y reiniciar el recorrido.
 
+## Fuente
+https://www.geeksforgeeks.org/huffman-coding-java/

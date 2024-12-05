@@ -1,7 +1,7 @@
-package Compresion;
+package Huffman.ComprimirString;
 
 public class NodoHuffman {
-    public char ch;              // Carácter representado
+    public char ch;              // CarAacter representado
     public int frequency;        // Frecuencia del carácter
     public NodoHuffman left;     // Hijo izquierdo
     public NodoHuffman right;    // Hijo derecho
